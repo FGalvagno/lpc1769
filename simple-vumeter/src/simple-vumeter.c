@@ -61,7 +61,7 @@ void ADC_IRQHandler(void){
 	//VUmeter chann 1
 	data = ADC_ChannelGetData(LPC_ADC, 1);
 	LPC_GPIO1 -> FIOMASK = !(0x0FC00000);
-	uint32_t port_value = GetVU(data)<<23;
+	port_value = GetVU(data)<<23;
 	LPC_GPIO1 -> FIOPIN  = port_value;
 }
 
